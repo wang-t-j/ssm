@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+            普通工厂类，创建对象
+                1.配置普通工厂
+                2.配置要获取的对象
+    -->
+    <bean id="dynamicBeanFactory" class="com.yhsj.factory.DynamicBeanFactory"></bean>
+    <bean id="userDao" factory-bean="dynamicBeanFactory" factory-method="createUserDao"></bean>
+
+    <!--
+            静态工厂类，创建对象
+                        class:静态工厂类路径
+                        factory-method:创建对象的静态方法
+    -->
+<!--
+    <bean id="userDao" class="com.yhsj.factory.StaticBeanFactory" factory-method="createUserDao"></bean>
+-->
+
+
+
+
+
+
+    <!--
+       id: 在ioc容器中的唯一标识
+       class： 类的全路径，底层底层使用的是反射
+    -->
+    <!--<bean id="userDao" class="com.yhsj.dao.impl.UserDaoImpl"></bean>
+    <bean id="userMysqlDao" class="com.yhsj.dao.impl.UserMysqlDaoImpl"></bean>-->
+
+    <!--
+    scope:
+        singleton（单例对象）
+        prototype：多例对象
+
+        init-method="init"   destroy-method="destroy"
+        多例的情况下，只能演示对象什么时候创建的，对象的销毁演示不出来，
+        因为，多例情况下，对象的销毁是由JVM进行回收的，至于JVM什么时候回收，那不一定!!!
+    -->
+<!--
+    <bean id="userDao" class="com.yhsj.dao.impl.UserDaoImpl" scope="singleton" init-method="init" destroy-method="destroy"></bean>
+-->
+<!--
+    <bean id="userDao" class="com.yhsj.dao.impl.UserDaoImpl" scope="prototype" init-method="init" destroy-method="destroy"></bean>
+-->
+    <!--<bean id="userDao" class="com.yhsj.dao.impl.UserDaoImpl" scope="prototype"></bean>-->
+</beans>

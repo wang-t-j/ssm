@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <!--
+        bean是自定义的标签
+            id:改bean的一个唯一标识
+            class：创建对象对应类的全路径
+    -->
+    <bean id="userDaoImpl" class="com.yhsj.dao.impl.UserDaoImpl"></bean>
+    <bean id="userMysqlDaoImpl" class="com.yhsj.dao.impl.UserMysqlDaoImpl"></bean>
+</beans>
